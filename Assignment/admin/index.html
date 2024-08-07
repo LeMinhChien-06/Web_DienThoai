@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="library/bootstrap.min.css">
+    <link rel="stylesheet" href="library/all.min.css">
+</head>
+
+<body ng-app="myApp">
+    <div class="container-fluid">
+        <div class="row">
+            <!-- site bar -->
+            <div class="col-3">
+                <div ng-include="'layouts/_sitebar.html'"></div>
+            </div>
+            <div class="col-9">
+                <!-- Header -->
+                <div ng-include="'layouts/_header.html'"></div>
+                <!-- Header -->
+                <div ng-view></div>`
+
+
+                <!-- footer -->
+                <div ng-include="'layouts/_footer.html'"></div>
+                <!-- footer -->
+            </div>
+        </div>
+    </div>
+
+    <script src="library/bootstrap.bundle.min.js"></script>
+    <script src="library/all.min.js"></script>
+    <script src="library/angular.min.js"></script>
+    <script src="library/angular-route.min.js"></script>
+
+    <script src="controllers/_HeaderController.js"></script>
+    <script src="controllers/_SiteBarController.js"></script>
+    <script src="controllers/_FooterController.js"></script>
+    <script src="controllers/NguoidungController.js"></script>
+    <script src="controllers/SanphamController.js"></script>
+    <script src="controllers/TrangchuController.js"></script>
+    <script src="controllers/ThemmoiNguoidungController.js"></script>
+    <script src="controllers/UpdateNguoidungController.js"></script>
+
+    <script>
+        var myApp = angular.module("myApp", ["ngRoute"])
+        myApp.config(function($routeProvider) {
+            $routeProvider
+            // .when("/", {
+            //     templateUrl : "views/trangchu.html"
+            // })
+                .when("/", {
+                    templateUrl: "views/nguoidung.html",
+                    controller: NguoidungController
+                })
+                .when("/san-pham", {
+                    templateUrl: "views/sanpham.html",
+                    controller: SanphamController
+                })
+                .when("/trang-chu", {
+                    templateUrl: "views/trangchu.html",
+                    controller: TrangchuController
+                })
+                .when("/them-moi-nguoi-dung", {
+                    templateUrl: "views/themmoinguoidung.html",
+                    controller: ThemmoiNguoidungController
+                })
+                .when("/update-nguoi-dung/:id", {
+                    templateUrl: "views/updatenguoidung.html",
+                    controller: UpdateNguoidungController
+                })
+                .when("/them-moi-san-pham", {
+                    templateUrl: "views/themmoisanpham.html"
+
+                })
+        });
+    </script>
+</body>
+
+</html>

@@ -1,0 +1,35 @@
+<h3 class="mt-3 text-success" style="text-align: center;">Sửa người dùng</h3>
+<div class="p-4" style="min-height: 800px;">
+    <div class="container col-sm-9">
+        <div>
+            <div class="form-group mt-3">
+                <label style="font-weight: 500;">Mã người dùng</label>
+                <input ng-model="nguoidung.code" class="form-control">
+                <span class="text-danger" ng-if="validateMa">{{ validateMaMessage }}</span>
+            </div>
+            <div class="form-group mt-3">
+                <label style="font-weight: 500;">Họ và tên:</label>
+                <input ng-model="nguoidung.name" class="form-control">
+                <span class="text-danger" ng-if="validateTen">{{ validateTenMessage }}</span>
+            </div>
+            <div class="form-group mt-3">
+                <label style="font-weight: 500;">Email:</label>
+                <input ng-model="nguoidung.email" class="form-control">
+                <span class="text-danger" ng-if="validateEmail">{{ validateEmailMessage }}</span>
+            </div>
+            <div class="mt-3">
+                <label style="font-weight: 500;">Vai trò:</label>
+                <select class="form-control" ng-model="nguoidung.role">
+                    <option value="" hidden>--Chọn vai trò--</option>
+                    <option value="Admin">Admin</option>
+                    <option value="Nhân viên">Nhân viên</option>
+                </select>
+                <span class="text-danger" ng-if="validateRole">{{ validateRoleMessage }}</span>
+            </div>
+            <br>
+            <div class="form-group">
+                <button type="button" ng-click="updateNguoidung()" class="btn btn-outline-success">Chỉnh sửa</button>
+            </div>
+        </div>
+    </div>
+</div>

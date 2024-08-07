@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="library/bootstrap.min.css">
+    <link rel="stylesheet" href="library/all.min.css">
+    <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js"></script>
+    <title>Lê Minh Chiến</title>
+    <style>
+        /* CSS cho dropdown hover */
+        
+        .dropdown:hover .dropdown-menu {
+            display: block;
+            background-color: seagreen;
+        }
+        
+        .navbar-brand:hover {
+            background-color: #339966;
+        }
+        
+        .nav-link:hover {
+            background-color: #339966;
+        }
+        
+        .link-color {
+            color: black;
+        }
+    </style>
+</head>
+
+<body ng-app="myApp">
+    <div class="container-fluid mt-1 ps-4 pe-4">
+
+        <div class="row">
+            <!-- Header -->
+            <div ng-include="'layouts/_header.html'"></div>
+            <!-- Header -->
+            <div ng-include="'layouts/_sitebar.html'"></div>
+            <div class="row">
+                <div ng-view></div>
+
+            </div>
+            <!-- footer -->
+            <div ng-include="'layouts/_footer.html'"></div>
+            <!-- footer -->
+        </div>
+
+    </div>
+
+
+    <script src="library/bootstrap.bundle.min.js"></script>
+    <script src="library/all.min.js"></script>
+    <script src="library/angular.min.js"></script>
+    <script src="library/angular-route.min.js"></script>
+
+    <script src="controllers/TrangchuController.js"></script>
+    <script src="controllers/DienthoaiController.js"></script>
+
+    <script>
+        var myApp = angular.module("myApp", ["ngRoute"])
+        myApp.config(function($routeProvider) {
+            $routeProvider
+                .when("/", {
+                    templateUrl: "views/trangchu.html",
+
+                })
+                .when("/gioi-thieu", {
+                    templateUrl: "views/gioithieu.html"
+
+                })
+                .when("/dien-thoai", {
+                    templateUrl: "views/dienthoai.html",
+                    controller: DienthoaiController
+                })
+                .when("/dien-thoai-chi-tiet", {
+                    templateUrl: "views/dienthoaichitiet.html"
+                })
+                .when("/dien-thoai-chi-tiet-1", {
+                    templateUrl: "views/dienthoaichitiet1.html"
+                })
+                .when("/dong-ho", {
+                    templateUrl: "views/dongho.html"
+                })
+                .when("/dong-ho-chi-tiet", {
+                    templateUrl: "views/donghochitiet.html"
+                })
+                .when("/lap-top", {
+                    templateUrl: "views/laptop.html"
+                })
+
+            // .when("/quan-ly-nguoi-dung", {
+            //     templateUrl : "quanlynguoidung.html"
+            // })
+            // .when("/quan-ly-san-pham", {
+            //     templateUrl : "quanlysanpham.html"
+            // })
+            .otherwise({
+                templateUrl: "404.html"
+            })
+        });
+    </script>
+
+</body>
+
+</html>

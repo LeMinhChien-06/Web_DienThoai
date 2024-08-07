@@ -1,0 +1,4 @@
+.list-group-item > list-group-item-action:hover {
+    background-color: limegreen; /* Màu nền xanh lá khi hover */
+    color: white; /* Màu chữ khi hover */
+  }

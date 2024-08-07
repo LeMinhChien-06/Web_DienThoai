@@ -1,0 +1,98 @@
+{
+  "nguoidung": [
+    {
+      "id": "ccbf",
+      "code": "NV03",
+      "name": "Nguyễn Tiến Dũng2",
+      "email": "dung1234@gmail.com",
+      "role": "Admin"
+    },
+    {
+      "id": "9264",
+      "code": "NV06",
+      "name": "Nguyễn Khánh Đằng",
+      "email": "dang@gmail.com",
+      "role": "Nhân viên"
+    },
+    {
+      "id": "dd2f",
+      "code": "NV08",
+      "name": "Nguyễn Tiến Khá",
+      "email": "kha@gmail.com",
+      "role": "Nhân viên"
+    },
+    {
+      "id": "ae9f",
+      "code": "NV0",
+      "name": "Ahehe",
+      "email": "chien@gmail.com",
+      "role": "Admin"
+    }
+  ],
+  "sanpham": [
+    {
+      "id": "a173",
+      "code": "SP09",
+      "name": "Sam sung utral s24",
+      "firm": "Samsung",
+      "price": "654002",
+      "describe": "Dòng điện thoại sam sung"
+    },
+    {
+      "id": "3f31",
+      "code": "SP02",
+      "name": "iphone13",
+      "firm": "Apple",
+      "price": "14500000",
+      "describe": "Iphone 13 promax"
+    },
+    {
+      "id": "7b57",
+      "code": "SP09",
+      "name": "Iphone 11",
+      "firm": "Apple",
+      "price": "8500000",
+      "describe": "iphone 11 màu vàng"
+    },
+    {
+      "id": "636e",
+      "code": "dfad",
+      "name": "adf",
+      "firm": "Apple",
+      "price": "544",
+      "describe": "43trwet"
+    },
+    {
+      "id": "b36f",
+      "code": "álhja",
+      "name": "ád",
+      "firm": "Apple",
+      "price": "987",
+      "describe": "àdafds"
+    },
+    {
+      "id": "bd3b",
+      "code": "à",
+      "name": "à",
+      "firm": "Apple",
+      "price": "999",
+      "describe": "à"
+    },
+    {
+      "id": "ce3b",
+      "code": "sdfg",
+      "name": "ag",
+      "firm": "Samsung",
+      "price": "9686",
+      "describe": "adgdf"
+    },
+    {
+      "id": "f235",
+      "code": "SP03",
+      "name": "c",
+      "firm": "Apple",
+      "price": "99999",
+      "describe": "afbvcxb"
+    }
+  ]
+}

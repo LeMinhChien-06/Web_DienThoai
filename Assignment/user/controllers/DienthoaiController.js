@@ -1,0 +1,3 @@
+window.DienthoaiController = function($scope){
+    
+}

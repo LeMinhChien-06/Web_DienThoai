@@ -1,0 +1,175 @@
+
+    <div class="p-3" style="min-height: 800px;">
+        <h3 class="text-success mb-4">Quản lý người dùng</h3>
+        <button class="btn btn-outline-success" 
+            data-bs-toggle="modal"
+            data-bs-target="#exampleModal">Thêm mới
+        </button>
+        <div ng-controller="parent">
+            <div ng-controller="form">
+                <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+                    <div class="modal-dialog modal-lg">
+                        <div class="modal-content">
+                            <div class="modal-header bg-success">
+                                <h5 class="modal-title" id="exampleModalLabel">Nhập thông tin người dùng</h5>
+                                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                            </div>
+                            <form class="needs-validation" novalidate>
+                                <div class="modal-body">
+                                    <div class="mb-3">
+                                        <label class="form-label">Số thứ tự</label>
+                                        <input type="text" class="form-control" ng-model="{{$parent.student.numericalOrder}}" required>
+                                        <div class="invalid-feedback">
+                                            Vui lòng điền trường này
+                                        </div>
+                                    </div>
+                                    <div class="mb-3">
+                                        <label for="input-fullname" class="form-label">Họ và tên</label>
+                                        <input type="text" class="form-control" ng-model="{{$parent.student.fullName}}" required>
+                                        <div class="invalid-feedback">
+                                            Vui lòng điền trường này
+                                        </div>
+                                    </div>
+                                    <div class="mb-3">
+                                        <label for="input-email" class="form-label">Email</label>
+                                        <div class="input-group mb-3">
+                                            <input type="text" class="form-control" ng-model="{{$parent.student.email}}" required>
+                                            <div class="invalid-feedback">
+                                                Vui lòng điền trường này
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="mb-3">
+                                        <label for="phone" class="form-label">Vai trò</label>
+                                        <div class="form-check">
+                                            <input class="form-check-input" type="radio" name="flexRadioDefault" id="flexRadioDefault1" ng-model="{{$parent.student.role}}">
+                                            <label class="form-check-label" for="flexRadioDefault1">
+                                              Admin
+                                            </label>
+                                          </div>
+                                          <div class="form-check">
+                                            <input class="form-check-input" type="radio" name="flexRadioDefault" id="flexRadioDefault2" checked ng-model="{{$parent.student.role}}">
+                                            <label class="form-check-label" for="flexRadioDefault2">
+                                              Nhân viên
+                                            </label>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="modal-footer">
+                                    <button type="submit" class="btn btn-success" ng-click="save()">Lưu</button> 
+                                </div>
+                            </form>
+                        </div>
+                    </div>
+                </div> 
+            </div>
+            <div ng-contrller="table">
+                <table class="table mt-3">
+                    <thead>
+                        <tr>
+                            <th scope="col">STT</th>
+                            <th scope="col">Họ và tên</th>
+                            <th scope="col">Email</th>
+                            <th scope="col">Vai trò</th>
+                            <th scope="col">Hành động</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <th scope="row">1</th>
+                            <td>Lê Minh Chiến</td>
+                            <td>chienleminh703@gmail.com</td>
+                            <td>Admin</td>
+                            <td>
+                                <button class="btn btn-warning">Sửa</button>
+                                <button class="btn btn-danger">Xóa</button>
+                            </td>
+                        </tr>
+                        <tr>
+                            <th scope="row">2</th>
+                            <td>Lê Phúc Phong</td>
+                            <td>phucphong@gmail.com</td>
+                            <td>Admin</td>
+                            <td>
+                                <button class="btn btn-warning">Sửa</button>
+                                <button class="btn btn-danger">Xóa</button>
+                            </td>
+                        </tr>
+                        <tr ng-repeat="(index, student) in $parent.students">
+                            <td>{{student.numericalOrder}}</td>
+                            <td>{{student.fullName}}</td>
+                            <td>{{student.email}}</td>
+                            <td>{{student.role}}</td>
+                            <td>
+                                <button class="btn btn-warning">Sửa</button>
+                                <button class="btn btn-danger">Xóa</button>
+                            </td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>            
+        </div>
+    </div>
+    
+    <script>
+var myApp = angular.module("myApp", [])
+
+myApp.container("parent", $scope => {
+    $scope.students = [
+        {
+            numericalOrder: "1",
+            fullName: "Lê Minh Chiến",
+            email: "chienleminh703@gmail.com",
+            role: "Admin"
+        },
+        {
+            numericalOrder: "2",
+            fullName: "Lê Phúc Phong",
+            email: "phucphong68@gmail.com",
+            role: "Admin"
+        }
+    ]
+
+    $scope.student = {
+        numericalOrder: "",
+        fullName: "",
+        email: "",
+        role: ""
+    }
+})
+
+myApp.controller("form", $scope => {
+
+})
+
+myApp.controller("table", $scope => {
+
+})
+</script>
+<script>
+    (function () {
+        'use strict'
+        // Fetch all the forms we want to apply custom Bootstrap validation styles to
+        var forms = document.querySelectorAll('.needs-validation')
+        // Loop over them and prevent submission
+        Array.prototype.slice.call(forms)
+            .forEach(function (form) {
+                form.addEventListener('submit', function (event) {
+                    if (!form.checkValidity()) {
+                        event.preventDefault()
+                        event.stopPropagation()
+                    }
+
+                    form.classList.add('was-validated')
+                }, false)
+            })
+    })()
+
+    var tooltipTriggerList = [].slice.call(document.querySelectorAll('[data-bs-toggle="tooltip"]'))
+    var tooltipList = tooltipTriggerList.map(function (tooltipTriggerEl) {
+        return new bootstrap.Tooltip(tooltipTriggerEl)
+    })
+
+</script>
+
+
